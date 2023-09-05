@@ -20,7 +20,7 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
 
         holder.note.text = noteInfo.noteString
         holder.date.text = noteInfo.noteDate
-        holder.position.text = position.toString()
+        holder.position.text = (position + 1).toString()
 
     }
 
