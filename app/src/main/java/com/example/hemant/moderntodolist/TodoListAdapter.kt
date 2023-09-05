@@ -10,7 +10,8 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
     RecyclerView.Adapter<TodoListAdapter.TodoListVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListVH {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.activity_home_page,parent,false) //change the layout later
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.note_list_item, parent, false)
         return TodoListVH(v)
     }
 
@@ -29,9 +30,15 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
 
 
     inner class TodoListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        lateinit var note : TextView;
-        lateinit var position: TextView
-        lateinit var date : TextView
+        var note: TextView;
+        var position: TextView
+        var date: TextView
+
+        init {
+            note = itemView.findViewById(R.id.note_title)
+            position = itemView.findViewById(R.id.note_right_text)
+            date = itemView.findViewById(R.id.note_subtitle)
+        }
 
     }
 }
