@@ -3,6 +3,7 @@ package com.example.hemant.moderntodolist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,7 +21,13 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
 
         holder.note.text = noteInfo.noteString
         holder.date.text = noteInfo.noteDate
-        holder.position.text = (position + 1).toString()
+//        holder.delete_button
+
+        holder.delete_button.setOnClickListener(){
+            noteList.removeAt(position)
+            notifyDataSetChanged()
+            println("The position is: $position")
+        }
 
     }
 
@@ -31,12 +38,12 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
 
     inner class TodoListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var note: TextView;
-        var position: TextView
+        var delete_button: Button
         var date: TextView
 
         init {
             note = itemView.findViewById(R.id.note_title)
-            position = itemView.findViewById(R.id.note_right_text)
+            delete_button = itemView.findViewById(R.id.delete_button)
             date = itemView.findViewById(R.id.note_subtitle)
         }
 

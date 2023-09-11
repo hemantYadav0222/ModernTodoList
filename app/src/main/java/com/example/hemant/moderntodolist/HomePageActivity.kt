@@ -68,7 +68,7 @@ class HomePageActivity : AppCompatActivity() {
     }
 
     private fun appendNewNote(note: Note) {
-        noteList.add(note)
+        noteList.add(0,note)
         adapter.notifyDataSetChanged()
     }
 
