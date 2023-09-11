@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -38,7 +39,7 @@ class TodoListAdapter(private val noteList: ArrayList<Note>) :
 
     inner class TodoListVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var note: TextView;
-        var delete_button: Button
+        var delete_button: ImageView
         var date: TextView
 
         init {
